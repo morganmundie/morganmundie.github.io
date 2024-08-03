@@ -1,15 +1,23 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Outlet } from 'react-router-dom';
 import Header from '../Header';
 import Footer from '../Footer';
-import './Main.css'; // Import CSS for Main styling
+import './Main.css'; 
 
 const Main = () => {
+  const aboutRef = useRef(null);
+  const experienceRef = useRef(null);
+  const projectsRef = useRef(null);
+
   return (
     <div className="main">
-      <Header />
+      <Header
+        aboutRef={aboutRef}
+        experienceRef={experienceRef}
+        projectsRef={projectsRef}
+      />
       <main>
-        <Outlet /> {/* This is where nested routes will render */}
+        <Outlet context={{ aboutRef, experienceRef, projectsRef }} /> {/* Pass refs via context */}
       </main>
       <Footer />
     </div>
