@@ -1,0 +1,41 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
+
+
+:root {
+    --background-color: #1f1c27;
+    --card-background: #2f2b3a;
+    --element-background: #46424f;
+    --text-color: #e0e0e0;
+    --link-color: #bb86fc;
+    --accent-color: #a688fa;
+    --header-footer-bg: #5e5a66;
+    --border-color: #333;
+    --paragraph-color: #908d96;
+}
+
+body {
+  margin: 0;
+  font-family: 'Fira Code', 'Source Code Pro', monospace;
+  background-color: var(--background-color); 
+  color: var(--text-color); 
+}
+
+a {
+    text-decoration: none;
+    transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+
+a:visited {
+    color: var(--text-color); 
+}
+
+a:hover {
+    color: var(--link-color); 
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-color);
+}
