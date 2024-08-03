@@ -1,0 +1,10 @@
+.footer {
+    background: #3d3d3d;
+    color: white;
+    text-align: center;
+  }
+  
+  .footer .container {
+    margin: 0 auto;
+    padding: 0 15px;
+  }
