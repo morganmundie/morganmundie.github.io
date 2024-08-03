@@ -2,7 +2,6 @@
 
 .header {
   background-color: var(--header-footer-bg); 
-  color: var(--text-color); /* Light text color */
   padding: 10px 0;
   position: -webkit-sticky; /* For Safari */
   position: sticky;
@@ -16,6 +15,16 @@
   align-items: center;
   margin: 0 auto;
   padding: 0 30px;
+}
+
+.header-title {
+  margin: 0;
+  display: block;
+}
+
+/* Hide header title on small screens */
+.header-title {
+  display: block;
 }
 
 .header h1 {
@@ -32,3 +41,48 @@
   cursor: pointer;
 }
 
+/* Hamburger menu styles */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .header-title {
+    display: none; /* Hide the title on mobile */
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .nav {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100%;
+    background-color: var(--header-footer-bg);
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    flex-direction: column;
+    padding: 20px;
+    transition: transform 0.3s ease;
+    transform: translateX(100%);
+  }
+
+  .nav.open {
+    display: flex;
+    transform: translateX(0);
+  }
+
+  .nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}
