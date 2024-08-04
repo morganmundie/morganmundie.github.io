@@ -7,6 +7,8 @@
   position: sticky;
   top: 0;
   z-index: 1000;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
 
 .header .container {
@@ -39,6 +41,31 @@
 
 .header nav ul li {
   cursor: pointer;
+}
+
+.nav {
+  display: flex;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+.nav a {
+  color: var(--link-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  padding: 5px 10px;
+  border-radius: 15px;
+}
+
+.nav a.active {
+  color: var(--header-footer-bg);
+  background-color: var(--accent-color);
+  border-radius: 15px;
+  padding: 5px 10px;
 }
 
 /* Hamburger menu styles */
