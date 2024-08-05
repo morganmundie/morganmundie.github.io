@@ -2,12 +2,12 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import './Header.css';
 
-const Header = ({ aboutRef, experienceRef, projectsRef, activeSection }) => {
-
-  const [isNavOpen, setIsNavOpen] = useState(false);
+const Header = ({ activeSection, aboutRef, experienceRef, projectsRef, location }) => {
   const navigate = useNavigate();
-  const location = useLocation();
   const headerRef = useRef(null);
+
+  const [navOpen, setNavOpen] = useState(false);
+
 
   const scrollToRef = (ref) => {
     if (ref && ref.current) {
@@ -16,17 +16,19 @@ const Header = ({ aboutRef, experienceRef, projectsRef, activeSection }) => {
   };
 
   const handleNavigation = (ref) => {
-    if (window.location.pathname !== '/') {
-      window.location.href = '/'; // Navigate to homepage if not already there
+    if (location.pathname !== '/') {
+      navigate('/'); // Navigate to homepage if not already there
     }
-    scrollToRef(ref) // Scroll to the referenced section
+    scrollToRef(ref); // Scroll to the referenced section
   };
+
+  const isActive = (section) => location.pathname === '/' && activeSection === section;
 
 
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (headerRef.current && !headerRef.current.contains(event.target)) {
-        setIsNavOpen(false);
+        setNavOpen(false);
       }
     };
 
@@ -35,12 +37,9 @@ const Header = ({ aboutRef, experienceRef, projectsRef, activeSection }) => {
   }, []);
 
   useEffect(() => {
-    return () => setIsNavOpen(false);
+    return () => setNavOpen(false);
   }, [navigate]);
 
-  const toggleNav = () => {
-    setIsNavOpen(!isNavOpen);
-  };
 
   const getActiveClass = (id) => {
     return activeSection === id ? 'active' : '';
@@ -51,15 +50,15 @@ const Header = ({ aboutRef, experienceRef, projectsRef, activeSection }) => {
     <header className="header">
       <div className="container">
         <h1 className="header-title">Morgan Mundell Portfolio</h1>
-        <button className="hamburger" onClick={toggleNav}>
-          {isNavOpen ? '✖' : '☰'}
+        <button className="hamburger" onClick={() => setNavOpen(!navOpen)}>
+          ☰
         </button>
-        <nav className={`nav ${isNavOpen ? 'open' : ''}`}>
+        <nav className={`nav ${navOpen ? 'open' : ''}`}>
           <ul>
             <li>
               <a
-                href="#about"
-                className={`nav-link ${activeSection === 'about' ? 'active' : ''}`}
+                href="#"
+                className={isActive('about') ? 'active' : ''}
                 onClick={() => handleNavigation(aboutRef)}
               >
                 About
@@ -67,8 +66,8 @@ const Header = ({ aboutRef, experienceRef, projectsRef, activeSection }) => {
             </li>
             <li>
               <a
-                href="#experience"
-                className={`nav-link ${activeSection === 'experience' ? 'active' : ''}`}
+                href="#"
+                className={isActive('experience') ? 'active' : ''}
                 onClick={() => handleNavigation(experienceRef)}
               >
                 Experience
@@ -76,20 +75,23 @@ const Header = ({ aboutRef, experienceRef, projectsRef, activeSection }) => {
             </li>
             <li>
               <a
-                href="#projects"
-                className={`nav-link ${activeSection === 'projects' ? 'active' : ''}`}
+                href="#"
+                className={isActive('projects') ? 'active' : ''}
                 onClick={() => handleNavigation(projectsRef)}
               >
                 Projects
               </a>
             </li>
             <li>
-              <Link to="/contact" className={`nav-link ${activeSection === 'contact' ? 'active' : ''}`}>
+              <Link
+                to="/contact"
+                className={location.pathname === '/contact' ? 'active' : ''}
+              >
                 Contact
               </Link>
             </li>
           </ul>
-          </nav>
+        </nav>
       </div>
     </header>
   );

@@ -1,14 +1,15 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import Header from '../Header';
 import Footer from "../Footer"
 
 
 const Main = () => {
+  const [activeSection, setActiveSection] = useState('');
   const aboutRef = useRef(null);
   const experienceRef = useRef(null);
   const projectsRef = useRef(null);
-  const [activeSection, setActiveSection] = useState('');
+  const location = useLocation();
 
   useEffect(() => {
     const sections = [
@@ -41,15 +42,16 @@ const Main = () => {
         }
       });
     };
-  }, []);
+  }, [location.pathname]);
 
   return (
-    <div className="main">
+    <div>
       <Header
+        activeSection={activeSection}
         aboutRef={aboutRef}
         experienceRef={experienceRef}
         projectsRef={projectsRef}
-        activeSection={activeSection}
+        location={location}
       />
       <main>
         <Outlet context={{ aboutRef, experienceRef, projectsRef }} />

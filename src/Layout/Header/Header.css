@@ -1,7 +1,5 @@
-/* src/components/Header.css */
-
 .header {
-  background-color: var(--header-footer-bg); 
+  background-color: var(--header-footer-bg);
   padding: 10px 0;
   position: -webkit-sticky; /* For Safari */
   position: sticky;
@@ -21,26 +19,6 @@
 
 .header-title {
   margin: 0;
-  display: block;
-}
-
-/* Hide header title on small screens */
-.header-title {
-  display: block;
-}
-
-.header h1 {
-  margin: 0;
-}
-
-.header nav ul {
-  list-style: none;
-  display: flex;
-  gap: 15px;
-}
-
-.header nav ul li {
-  cursor: pointer;
 }
 
 .nav {
@@ -54,7 +32,7 @@
 }
 
 .nav a {
-  color: var(--link-color);
+  color: var(--text-color);
   text-decoration: none;
   transition: color 0.3s ease;
   padding: 5px 10px;
@@ -62,13 +40,11 @@
 }
 
 .nav a.active {
-  color: var(--header-footer-bg);
   background-color: var(--accent-color);
-  border-radius: 15px;
-  padding: 5px 10px;
+  color: var(--header-footer-bg);
+  border: 1px solid var(--accent-color);
 }
 
-/* Hamburger menu styles */
 .hamburger {
   display: none;
   background: none;
