@@ -1,0 +1,16 @@
+.aboutMe h1 {
+    font-size: clamp(50px, 8vw, 100px);
+    margin: 0 0 10px 0;
+}
+
+.aboutMe h2 {
+    color: var(--paragraph-color);
+    font-size: clamp(40px, 8vw, 80px);
+    margin: 0 0 10px 0;
+}
+ 
+.aboutMe h4 {
+    color: var(--accent-color);
+    font-size: clamp(20px, 8vw, 40px);
+    margin: 0 0 10px 0;
+}
