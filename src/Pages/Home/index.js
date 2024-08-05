@@ -1,18 +1,19 @@
-import React, { useRef } from 'react';
-import Section from '../../Components/Section';
+import React, { forwardRef } from 'react';
+import { useOutletContext } from 'react-router-dom';
+import Section from '../../Components/Section/Section';
+import AboutMe from '../../Components/AboutMe/AboutMe';
+import Experience from '../../Components/Experience/Experience';
 
-const HomePage = ({ aboutRef, experienceRef, projectsRef }) => {
+const HomePage = () => {
   return (
     <div>
-      <h1>Home Page</h1>
-      <p>Welcome to the Home Page!</p>
-      <Section ref={aboutRef} id="about" title="About">
-        <p>About Section Content</p>
+      <Section id="about" ref={useOutletContext().aboutRef} >
+        <AboutMe />
       </Section>
-      <Section ref={experienceRef} id="experience" title="Experience">
-        <p>Experience Section Content</p>
+      <Section id="experience" ref={useOutletContext().experienceRef} title="Experience">
+        <Experience />
       </Section>
-      <Section ref={projectsRef} id="projects" title="Projects">
+      <Section id="projects" ref={useOutletContext().projectsRef} title="Projects">
         <p>Projects Section Content</p>
       </Section>
     </div>

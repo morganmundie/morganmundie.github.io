@@ -1,12 +1,12 @@
-/* src/components/Header.css */
-
 .header {
-  background-color: var(--header-footer-bg); 
+  background-color: var(--header-footer-bg);
   padding: 10px 0;
   position: -webkit-sticky; /* For Safari */
   position: sticky;
   top: 0;
   z-index: 1000;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
 
 .header .container {
@@ -19,29 +19,32 @@
 
 .header-title {
   margin: 0;
-  display: block;
 }
 
-/* Hide header title on small screens */
-.header-title {
-  display: block;
+.nav {
+  display: flex;
 }
 
-.header h1 {
-  margin: 0;
-}
-
-.header nav ul {
+.nav ul {
   list-style: none;
   display: flex;
   gap: 15px;
 }
 
-.header nav ul li {
-  cursor: pointer;
+.nav a {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  padding: 5px 10px;
+  border-radius: 15px;
 }
 
-/* Hamburger menu styles */
+.nav a.active {
+  background-color: var(--accent-color);
+  color: var(--header-footer-bg);
+  border: 1px solid var(--accent-color);
+}
+
 .hamburger {
   display: none;
   background: none;

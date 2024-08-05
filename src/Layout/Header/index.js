@@ -1,28 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import './Header.css'; // Import CSS for Header styling
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import './Header.css';
 
-const Header = ({ aboutRef, experienceRef, projectsRef }) => {
-  const [isNavOpen, setIsNavOpen] = useState(false);
+const Header = ({ activeSection, aboutRef, experienceRef, projectsRef, location }) => {
   const navigate = useNavigate();
   const headerRef = useRef(null);
 
-  // Close menu when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (headerRef.current && !headerRef.current.contains(event.target)) {
-        setIsNavOpen(false);
-      }
-    };
+  const [navOpen, setNavOpen] = useState(false);
 
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
-
-  // Close menu on navigation
-  useEffect(() => {
-    return () => setIsNavOpen(false);
-  }, [navigate]);
 
   const scrollToRef = (ref) => {
     if (ref && ref.current) {
@@ -31,30 +16,80 @@ const Header = ({ aboutRef, experienceRef, projectsRef }) => {
   };
 
   const handleNavigation = (ref) => {
-    if (window.location.pathname !== '/') {
+    if (location.pathname !== '/') {
       navigate('/'); // Navigate to homepage if not already there
     }
     scrollToRef(ref); // Scroll to the referenced section
-    setIsNavOpen(false);
   };
 
-  const toggleNav = () => {
-    setIsNavOpen(!isNavOpen);
+  const isActive = (section) => location.pathname === '/' && activeSection === section;
+
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (headerRef.current && !headerRef.current.contains(event.target)) {
+        setNavOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  useEffect(() => {
+    return () => setNavOpen(false);
+  }, [navigate]);
+
+
+  const getActiveClass = (id) => {
+    return activeSection === id ? 'active' : '';
   };
 
+  
   return (
-    <header className="header" ref={headerRef}>
+    <header className="header">
       <div className="container">
-        <button className="hamburger" onClick={toggleNav}>
-          {isNavOpen ? '✖' : '☰'}
-        </button>
         <h1 className="header-title">Morgan Mundell Portfolio</h1>
-        <nav className={`nav ${isNavOpen ? 'open' : ''}`}>
+        <button className="hamburger" onClick={() => setNavOpen(!navOpen)}>
+          ☰
+        </button>
+        <nav className={`nav ${navOpen ? 'open' : ''}`}>
           <ul>
-            <li><a onClick={() => handleNavigation(aboutRef)}>About</a></li>
-            <li><a onClick={() => handleNavigation(experienceRef)}>Experience</a></li>
-            <li><a onClick={() => handleNavigation(projectsRef)}>Projects</a></li>
-            <li><a onClick={() => navigate('/contact')}>Contact</a></li>
+            <li>
+              <a
+                href="#"
+                className={isActive('about') ? 'active' : ''}
+                onClick={() => handleNavigation(aboutRef)}
+              >
+                About
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                className={isActive('experience') ? 'active' : ''}
+                onClick={() => handleNavigation(experienceRef)}
+              >
+                Experience
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                className={isActive('projects') ? 'active' : ''}
+                onClick={() => handleNavigation(projectsRef)}
+              >
+                Projects
+              </a>
+            </li>
+            <li>
+              <Link
+                to="/contact"
+                className={location.pathname === '/contact' ? 'active' : ''}
+              >
+                Contact
+              </Link>
+            </li>
           </ul>
         </nav>
       </div>

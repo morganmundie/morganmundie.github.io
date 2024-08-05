@@ -8,12 +8,13 @@ import ContactPage from '../Pages/Contact';
 // Import the layout component
 import Main from '../Layout/Main';
 
+
 const AppRoutes = () => {
   return (
     <Router>
       <Routes>
         <Route element={<Main />}>
-          <Route path="/" element={<HomePageWrapper />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/contact" element={<ContactPage />} />
         </Route>
       </Routes>
@@ -21,15 +22,5 @@ const AppRoutes = () => {
   );
 };
 
-const HomePageWrapper = () => {
-  const { aboutRef, experienceRef, projectsRef } = useOutletContext();
-  return (
-    <HomePage
-      aboutRef={aboutRef}
-      experienceRef={experienceRef}
-      projectsRef={projectsRef}
-    />
-  );
-};
 
 export default AppRoutes;
