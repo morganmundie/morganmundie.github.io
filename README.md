@@ -37,7 +37,6 @@ To get started with this project locally, follow these steps:
    ```bash
    npm start
 
-
 ## Contact
 
 If you have any questions or would like to get in touch, please reach out to me at:

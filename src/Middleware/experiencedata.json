@@ -1,0 +1,83 @@
+[
+    {
+      "companyName": "Block Harbor Cybersecurity",
+      "positions": [
+        {
+          "title": "Software Development Team Lead",
+          "startDate": "Mar 2024",
+          "endDate": "Nov 2024",
+          "responsiblities": [
+            "Led refactoring of legacy codebase, reducing size by 30% and improving maintainability",
+            "Redesigned MySQL database schema to improve scalability and reduce redundancy, supporting better performance and future growth",
+            "Implemented role-based access control (RBAC) for RESTful APIs, mitigating security vulnerabilities and ensuring proper permission handling across user tiers",
+            "Acted as liaison between clients and cross-functional engineering teams to define technical requirements, prioritize features, and establish delivery timelines"
+          ]
+        },
+        {
+          "title": "Full Stack Engineer II & Scrum Master",
+          "startDate": "Jun 2023",
+          "endDate": "Mar 2024",
+          "responsiblities": [
+            "Translated high-level product goals into sprint-ready tasks with clear acceptance criteria, enabling efficient sprint planning for a 9 person dev team",
+            "Engineered UI components and backend logic enabling users to complete Threat Analysis and Risk Assessments 80% faster, significantly streamlining compliance workflows",
+            "Developed a scalable payment gateway using Stripe APIs, supporting purchases of multiple modules"
+          ]
+        },
+        {
+          "title": "Full Stack Engineer I",
+          "startDate": "Nov 2022",
+          "endDate": "Jun 2023",
+          "responsiblities": [
+            "Partnered with Product Manager to translate customer requirements into interactive Figma prototypes",
+            "Developed and supported a full stack SaaS application leveraging React, Node.js, Express, and MySQL",
+            "Deployed and managed production infrastructure on AWS, leveraging EC2 for compute, S3 for storage"
+          ]
+        }
+      ]
+    },
+    {
+      "companyName": "Magna Electronics",
+      "positions": [
+        {
+          "title": "Software Engineer I",
+          "startDate": "Jun 2022",
+          "endDate": "Nov 2022",
+          "responsiblities": [
+            "Designed and implemented a pipeline (C++) to read video frames using GStreamer framework in Linux",
+            "Developed bash scripts to automate tedious command sequences for running code and starting ECU",
+            "Created and utilized onboarding documentation and training materials to facilitate the productivity of new hires"
+          ]
+        }
+      ]
+    },
+    {
+      "companyName": "TASKING",
+      "positions": [
+        {
+          "title": "Software Engineering Intern",
+          "startDate": "Feb 2022",
+          "endDate": "Jun 2022",
+          "responsiblities": [
+            "Implemented a multi-node CAN network using two AURIX TC39x microcontrollers in C",
+            "Created marketing materials for Embedded World 2022 demo including video, presentation, and software"
+          ]
+        }
+      ]
+    },
+    {
+      "companyName": "Infineon Technologies",
+      "positions": [
+        {
+          "title": "Customer Logistics Management Intern",
+          "startDate": "May 2019",
+          "endDate": "Aug 2021",
+          "responsiblities": [
+            "Main point of contact for an automotive tier 1 customer on all supply chain questions and support topics",
+            "Automated repetitive Excel workflows using Python, including order entry and customer record processing, reducing manual input time by 70%",
+            "Created Excel macros and functions with Visual Basic for Applications (VBA) to interpret/decode SPI messages",
+            "Utilized VBA to automate data analysis for thousands of shipments weekly and port data into PowerPoints"
+          ]
+        }
+      ]
+    }
+  ]
