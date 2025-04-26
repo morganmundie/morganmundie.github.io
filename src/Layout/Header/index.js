@@ -15,7 +15,9 @@ const Header = ({ activeSection, aboutRef, experienceRef, projectsRef, location 
     }
   };
 
-  const handleNavigation = (ref) => {
+  const handleNavigation = (e, ref) => {
+    e.preventDefault();
+    e.stopPropagation();
     if (location.pathname !== '/') {
       navigate('/'); // Navigate to homepage if not already there
     }
@@ -59,7 +61,7 @@ const Header = ({ activeSection, aboutRef, experienceRef, projectsRef, location 
               <a
                 href="#"
                 className={isActive('about') ? 'active' : ''}
-                onClick={() => handleNavigation(aboutRef)}
+                onClick={(e) => handleNavigation(e, aboutRef)}
               >
                 About
               </a>
@@ -68,7 +70,7 @@ const Header = ({ activeSection, aboutRef, experienceRef, projectsRef, location 
               <a
                 href="#"
                 className={isActive('experience') ? 'active' : ''}
-                onClick={() => handleNavigation(experienceRef)}
+                onClick={(e) => handleNavigation(e, experienceRef)}
               >
                 Experience
               </a>
@@ -77,7 +79,7 @@ const Header = ({ activeSection, aboutRef, experienceRef, projectsRef, location 
               <a
                 href="#"
                 className={isActive('projects') ? 'active' : ''}
-                onClick={() => handleNavigation(projectsRef)}
+                onClick={(e) => handleNavigation(e, projectsRef)}
               >
                 Projects
               </a>
