@@ -8,7 +8,6 @@ import ContactPage from '../Pages/Contact';
 // Import the layout component
 import Main from '../Layout/Main';
 
-
 const AppRoutes = () => {
   return (
     <Router>
