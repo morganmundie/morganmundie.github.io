@@ -1,8 +1,9 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, useOutletContext } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 // Import page components
 import HomePage from '../Pages/Home';
+import AboutPage from '../Pages/About';
 import ContactPage from '../Pages/Contact';
 
 // Import the layout component
@@ -15,6 +16,7 @@ const AppRoutes = () => {
       <Routes>
         <Route element={<Main />}>
           <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
         </Route>
       </Routes>

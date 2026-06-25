@@ -1,6 +1,7 @@
 import React from 'react';
 import data from '../../Middleware/experiencedata.json'
 import ExperienceSection from './ExperienceSection/ExperienceSection';
+import './Experience.css';
 
 const Experience = () => {
 

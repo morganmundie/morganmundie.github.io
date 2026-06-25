@@ -1,0 +1,23 @@
+.cta-banner {
+  width: 100%;
+  text-align: center;
+  background-color: var(--card-background);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 50px var(--content-padding);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.cta-banner h2 {
+  margin: 0;
+  font-size: clamp(24px, 5vw, 36px);
+}
+
+.cta-banner p {
+  margin: 0 0 16px 0;
+  color: var(--paragraph-color);
+  font-size: clamp(16px, 3vw, 18px);
+}

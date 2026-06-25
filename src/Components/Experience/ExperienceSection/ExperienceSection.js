@@ -1,7 +1,7 @@
 import React from 'react';
+import './ExperienceSection.css';
 
 const ExperienceSection = ({ companyName, positions }) => {
-    //todo add styling
   return (
     <div className="experience-section">
       <h2>{companyName}</h2>
@@ -12,7 +12,7 @@ const ExperienceSection = ({ companyName, positions }) => {
         positions.map((position, index) => (
           <div key={index} className="position">
             <h3>{position.title}</h3>
-            <p>{position.startDate} – {position.endDate}</p>
+            <p className="dates">{position.startDate} – {position.endDate}</p>
             <ul>
               {position.responsiblities.map((item, i) => (
                 <li key={i}>{item}</li>

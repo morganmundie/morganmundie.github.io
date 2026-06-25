@@ -1,0 +1,14 @@
+.cta-section {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 var(--content-padding) var(--section-gap);
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.cta-section.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}

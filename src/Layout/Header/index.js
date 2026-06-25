@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link, useNavigate, useLocation, useOutletContext } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import ThemeToggle from '../../Components/ThemeToggle/ThemeToggle';
 import './Header.css';
 
-const Header = ({ activeSection, aboutRef, experienceRef, projectsRef, location }) => {
+const Header = ({ activeSection, servicesRef, processRef, workRef, location }) => {
   const navigate = useNavigate();
   const headerRef = useRef(null);
 
-  const [pendingRef, setPendingRef] = useState(null); // ref if coming from contacts page
+  const [pendingRef, setPendingRef] = useState(null); // ref if coming from another page
   const [navOpen, setNavOpen] = useState(false);
-
 
   const scrollToRef = (ref) => {
     if (ref && ref.current) {
@@ -19,6 +19,7 @@ const Header = ({ activeSection, aboutRef, experienceRef, projectsRef, location 
   const handleNavigation = (e, ref) => {
     e.preventDefault();
     e.stopPropagation();
+    setNavOpen(false);
     if (location.pathname !== '/') {
       setPendingRef(ref);
       navigate('/'); // Navigate to homepage if not already there
@@ -50,57 +51,69 @@ const Header = ({ activeSection, aboutRef, experienceRef, projectsRef, location 
   }, []);
 
   useEffect(() => {
-    return () => setNavOpen(false);
-  }, [navigate]);
+    setNavOpen(false);
+  }, [location.pathname]);
 
-
-  const getActiveClass = (id) => {
-    return activeSection === id ? 'active' : '';
-  };
-
-  
   return (
-    <header className="header">
+    <header className="header" ref={headerRef}>
       <div className="container">
-        <h1 className="header-title">Morgan Mundell Portfolio</h1>
-        <button className="hamburger" onClick={() => setNavOpen(!navOpen)}>
-          ☰
-        </button>
+        <Link to="/" className="brand" onClick={() => setNavOpen(false)}>
+          <span className="brand-name">Morgan Mundell</span>
+          <span className="brand-tag">Technical Video Production</span>
+        </Link>
+
+        <div className="header-actions">
+          <ThemeToggle />
+          <button
+            className="hamburger"
+            aria-label={navOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={navOpen}
+            onClick={() => setNavOpen(!navOpen)}
+          >
+            {navOpen ? '✕' : '☰'}
+          </button>
+        </div>
+
         <nav className={`nav ${navOpen ? 'open' : ''}`}>
           <ul>
             <li>
               <a
-                href="#"
-                className={isActive('about') ? 'active' : ''}
-                onClick={(e) => handleNavigation(e, aboutRef)}
+                href="#services"
+                className={isActive('services') ? 'active' : ''}
+                onClick={(e) => handleNavigation(e, servicesRef)}
               >
-                About
+                Services
               </a>
             </li>
             <li>
               <a
-                href="#"
-                className={isActive('experience') ? 'active' : ''}
-                onClick={(e) => handleNavigation(e, experienceRef)}
+                href="#process"
+                className={isActive('process') ? 'active' : ''}
+                onClick={(e) => handleNavigation(e, processRef)}
               >
-                Experience
+                Process
               </a>
             </li>
             <li>
               <a
-                href="#"
-                className={isActive('projects') ? 'active' : ''}
-                onClick={(e) => handleNavigation(e, projectsRef)}
+                href="#work"
+                className={isActive('work') ? 'active' : ''}
+                onClick={(e) => handleNavigation(e, workRef)}
               >
-                Projects
+                Work
               </a>
             </li>
             <li>
               <Link
-                to="/contact"
-                className={location.pathname === '/contact' ? 'active' : ''}
+                to="/about"
+                className={location.pathname === '/about' ? 'active' : ''}
               >
-                Contact
+                About
+              </Link>
+            </li>
+            <li>
+              <Link to="/contact" className="nav-cta">
+                Get a Quote
               </Link>
             </li>
           </ul>
