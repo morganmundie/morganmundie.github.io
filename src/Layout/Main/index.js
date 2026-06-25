@@ -2,20 +2,21 @@ import React, { useRef, useState, useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import Header from '../Header';
 import Footer from "../Footer"
+import './Main.css';
 
 
 const Main = () => {
   const [activeSection, setActiveSection] = useState('');
-  const aboutRef = useRef(null);
-  const experienceRef = useRef(null);
-  const projectsRef = useRef(null);
+  const servicesRef = useRef(null);
+  const processRef = useRef(null);
+  const workRef = useRef(null);
   const location = useLocation();
 
   useEffect(() => {
     const sections = [
-      { id: 'about', ref: aboutRef },
-      { id: 'experience', ref: experienceRef },
-      { id: 'projects', ref: projectsRef },
+      { id: 'services', ref: servicesRef },
+      { id: 'process', ref: processRef },
+      { id: 'work', ref: workRef },
     ];
 
     const observer = new IntersectionObserver(
@@ -45,16 +46,16 @@ const Main = () => {
   }, [location.pathname]);
 
   return (
-    <div>
+    <div className="main">
       <Header
         activeSection={activeSection}
-        aboutRef={aboutRef}
-        experienceRef={experienceRef}
-        projectsRef={projectsRef}
+        servicesRef={servicesRef}
+        processRef={processRef}
+        workRef={workRef}
         location={location}
       />
       <main>
-        <Outlet context={{ aboutRef, experienceRef, projectsRef }} />
+        <Outlet context={{ servicesRef, processRef, workRef }} />
       </main>
       <Footer />
     </div>

@@ -1,0 +1,19 @@
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  background-color: var(--element-background);
+  color: var(--accent-color);
+  line-height: 1;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent-color);
+}
