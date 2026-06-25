@@ -5,8 +5,7 @@ const AboutMe = () => {
   return (
     <div className='aboutMe'>
         <h1>Morgan Mundell</h1>
-        <h2>Software Engineer</h2>
-        <h4>Developing dynamic, responsive, and engaging digital solutions.</h4>
+        <h4>Engineer, Teacher, Animator.</h4>
 
         <p>
             In 2014, coding wasn't even on my radar until I joined my high school's robotics team. 

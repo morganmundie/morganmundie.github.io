@@ -1,43 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import ThemeToggle from '../../Components/ThemeToggle/ThemeToggle';
 import './Header.css';
 
-const Header = ({ activeSection, servicesRef, processRef, workRef, location }) => {
-  const navigate = useNavigate();
+const Header = ({ location }) => {
   const headerRef = useRef(null);
 
-  const [pendingRef, setPendingRef] = useState(null); // ref if coming from another page
   const [navOpen, setNavOpen] = useState(false);
-
-  const scrollToRef = (ref) => {
-    if (ref && ref.current) {
-      ref.current.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const handleNavigation = (e, ref) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setNavOpen(false);
-    if (location.pathname !== '/') {
-      setPendingRef(ref);
-      navigate('/'); // Navigate to homepage if not already there
-    }
-    else {
-      scrollToRef(ref); // Scroll to the referenced section
-    }
-  };
-
-  const isActive = (section) => location.pathname === '/' && activeSection === section;
-
-  // since navigate is synchronous, need to wait
-  useEffect(() => {
-    if (location.pathname === '/' && pendingRef) {
-      scrollToRef(pendingRef);
-      setPendingRef(null); // reset
-    }
-  }, [location, pendingRef]);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -77,31 +46,28 @@ const Header = ({ activeSection, servicesRef, processRef, workRef, location }) =
         <nav className={`nav ${navOpen ? 'open' : ''}`}>
           <ul>
             <li>
-              <a
-                href="#services"
-                className={isActive('services') ? 'active' : ''}
-                onClick={(e) => handleNavigation(e, servicesRef)}
+              <Link
+                to="/"
+                className={location.pathname === '/' ? 'active' : ''}
+              >
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/services"
+                className={location.pathname === '/services' ? 'active' : ''}
               >
                 Services
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#process"
-                className={isActive('process') ? 'active' : ''}
-                onClick={(e) => handleNavigation(e, processRef)}
+              <Link
+                to="/portfolio"
+                className={location.pathname === '/portfolio' ? 'active' : ''}
               >
-                Process
-              </a>
-            </li>
-            <li>
-              <a
-                href="#work"
-                className={isActive('work') ? 'active' : ''}
-                onClick={(e) => handleNavigation(e, workRef)}
-              >
-                Work
-              </a>
+                Portfolio
+              </Link>
             </li>
             <li>
               <Link

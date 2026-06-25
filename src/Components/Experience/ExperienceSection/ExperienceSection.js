@@ -1,10 +1,12 @@
 import React from 'react';
 import './ExperienceSection.css';
 
-const ExperienceSection = ({ companyName, positions }) => {
+const ExperienceSection = ({ topicName, positions }) => {
+      console.log(positions)
+
   return (
     <div className="experience-section">
-      <h2>{companyName}</h2>
+      <h2>{topicName}</h2>
 
       {positions.length === 0 ? (
         <p>No positions listed.</p>
@@ -12,7 +14,7 @@ const ExperienceSection = ({ companyName, positions }) => {
         positions.map((position, index) => (
           <div key={index} className="position">
             <h3>{position.title}</h3>
-            <p className="dates">{position.startDate} – {position.endDate}</p>
+            <p className="dates">{position.tagline}</p>
             <ul>
               {position.responsiblities.map((item, i) => (
                 <li key={i}>{item}</li>

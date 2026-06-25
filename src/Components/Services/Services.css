@@ -1,8 +1,19 @@
+.services-wrapper {
+  width: 100%;
+}
+
 .services-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px;
   width: 100%;
+}
+
+.services-more-link {
+  display: inline-block;
+  margin-top: 20px;
+  color: var(--link-color);
+  font-weight: bold;
 }
 
 .service-card {

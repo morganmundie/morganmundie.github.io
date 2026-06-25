@@ -7,9 +7,9 @@ const steps = [
     description: 'Understand your product, audience, and goals for the video.',
   },
   {
-    title: 'Product & Technical Deep Dive',
+    title: 'Technical Deep Dive',
     description:
-      "Before writing a word of script, I take the time to actually learn your product and the technology behind it — docs, demos, codebase walkthroughs, whatever it takes to get it right.",
+      "Take the time to learn your product and the technology behind it — docs, demos, codebase walkthroughs, etc.",
   },
   {
     title: 'Script & Storyboard',
