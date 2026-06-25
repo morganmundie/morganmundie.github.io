@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Samples.css';
 
 const categories = ['Explainer Video', 'Product Demo', 'Marketing Video'];
@@ -21,6 +22,9 @@ const Samples = () => {
         I'm building out my public reel right now — reach out and I can share
         work-in-progress examples in the meantime.
       </p>
+      <Link to="/portfolio" className="samples-more-link">
+        See full portfolio →
+      </Link>
     </div>
   );
 };

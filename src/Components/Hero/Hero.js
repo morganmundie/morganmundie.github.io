@@ -5,12 +5,12 @@ import './Hero.css';
 const Hero = ({ onSeeWorkClick }) => {
   return (
     <div className="hero">
-      <p className="hero-eyebrow">Video production for technical companies</p>
+      <p className="hero-eyebrow">Video production for tech heavy companies</p>
       <h1 className="hero-heading">
         Technical videos that make complex products make sense.
       </h1>
       <p className="hero-subheading">
-        I produce marketing and explainer videos for engineering and product
+        I produce technical marketing and explainer videos for engineering and product
         teams — turning dense technical work into clear stories that
         customers actually watch and understand.
       </p>
